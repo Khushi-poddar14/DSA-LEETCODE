@@ -21,9 +21,10 @@ class Solution {
         ListNode tem = head;
         if(length == n) return head.next;
         int travel = length - n;
-        while(travel-- > 0){
+        while(travel > 0){
             prev = tem;
             tem = tem.next;
+            travel--;
         }
         prev.next = tem.next;
         return head;
