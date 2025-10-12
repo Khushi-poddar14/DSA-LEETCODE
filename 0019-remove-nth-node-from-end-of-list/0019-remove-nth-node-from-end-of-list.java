@@ -13,20 +13,20 @@ class Solution {
         if(head == null || head.next == null) return null;
         int length = 0;
         ListNode temp = head;
-        while(temp!=null){
+        while(temp != null){
             temp = temp.next;
             length++;
         }
         ListNode prev = null;
-        ListNode tem = head;
-        if(length == n) return head.next;
-        int travel = length - n;
+        ListNode curr = head;
+        int travel = length - n;       // mtlb hme pta chl jaye hme konsi node se agla delete krvana h or ham usko uske next next se point krva de
+        if(length == n) return head.next;            // in case jitni linked list ki length h vhi node hme delete karna h mtlb hame head delete karne h toh ham simply head.next return krva denge
         while(travel > 0){
-            prev = tem;
-            tem = tem.next;
+            prev = curr;
+            curr = curr.next;
             travel--;
         }
-        prev.next = tem.next;
+        prev.next = curr.next;          // isse vo node jo hame delete krvani thi vo delete hojayegi
         return head;
     }
 }
