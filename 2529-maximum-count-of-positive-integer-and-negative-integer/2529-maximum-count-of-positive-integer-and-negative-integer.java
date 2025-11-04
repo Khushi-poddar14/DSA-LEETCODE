@@ -1,35 +1,29 @@
 class Solution {
     public int maximumCount(int[] nums) {
         int n = nums.length;
-        int st = 0;
-        int end = n-1;
-        int idx = -1;
-        int poscnt = 0;
-        int negcnt = 0;
-        while(st <= end){
+
+        // count negatives (last index of <0)
+        int st = 0, end = n - 1;
+        while (st <= end) {
             int mid = st + (end - st) / 2;
-            if(nums[mid] < 0){
-                idx = mid;
+            if (nums[mid] < 0)
                 st = mid + 1;
-                negcnt = st;
-            } 
-            else{
+            else
                 end = mid - 1;
-            }
         }
-        st = 0;
-        end = n-1;
-        while(st <= end){
+        int negcnt = st; // because st = index of first non-negative number
+
+        // count positives (first index of >0)
+        st = 0; end = n - 1;
+        while (st <= end) {
             int mid = st + (end - st) / 2;
-            if(nums[mid] > 0){
-                idx = mid;
-                end = mid - 1;
-            }
-            else{
+            if (nums[mid] <= 0)
                 st = mid + 1;
-            }
-            poscnt = n - idx;
+            else
+                end = mid - 1;
         }
-        return Math.max(negcnt,poscnt);
+        int poscnt = n - st; // because st = index of first positive number
+
+        return Math.max(negcnt, poscnt);
     }
 }
