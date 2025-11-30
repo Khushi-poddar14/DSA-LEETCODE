@@ -7,10 +7,11 @@ class Solution {
         {
             sum += nums[i];
         }
-        while(sum % k != 0){
-            sum--;
-            op++;
-        }
-        return op;
+        // while(sum % k != 0){
+        //     sum--;
+        //     op++;
+        // }
+        // return op;
+        return sum%k;
     }
 }
