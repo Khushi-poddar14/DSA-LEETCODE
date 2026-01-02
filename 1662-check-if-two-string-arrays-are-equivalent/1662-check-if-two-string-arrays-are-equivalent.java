@@ -18,6 +18,7 @@ class Solution {
     // Approach 2 
         int m = word1.length;
         int n = word2.length;
+        if(m!=n) return false;
         int w1i = 0;
         int i = 0;
         int w2i = 0;
