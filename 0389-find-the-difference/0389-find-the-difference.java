@@ -1,21 +1,14 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        int[] freq = new int[26];
-        for(int i = 0; i < t.length(); i++){
-            char ch = t.charAt(i);
-            int index = ch - 'a';
-            freq[index]++;
+        // code I
+        int s_sum = 0;
+        int t_sum = 0;
+        for(int i = 0; i < s.length(); i++){
+            s_sum += (int)s.charAt(i);
         }
-        for(int j = 0; j < s.length(); j++){
-            char sh = s.charAt(j);
-            int idx = sh - 'a';
-            freq[idx]--;
+        for(int j = 0; j < t.length(); j++){
+            t_sum += (int)t.charAt(j);
         }
-        for(int i = 0; i < 26; i++){
-            if(freq[i] > 0){
-                return (char)(i + 'a');
-            }
-        }
-        return ' ';
+        return (char)(t_sum - s_sum);
     }
 }
