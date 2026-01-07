@@ -3,19 +3,23 @@ class Solution {
         int n = chars.length;
         int index = 0;
         int i = 0;
-        while(i<n){
-            char ch = chars[i];
+        while(i < n){
+            char curr = chars[i];
             int count = 0;
-            while(i < n && ch == chars[i]){
+
+            //find count of duplicates
+            while(i<n && curr == chars[i]){
                 count++;
                 i++;
             }
-            chars[index] = ch;
+
+            //Now Assign
+            chars[index] = curr;
             index++;
             if(count > 1){
-                String result = Integer.toString(count);
-                for(char sh : result.toCharArray()){
-                    chars[index] = sh;
+                String cnt = Integer.toString(count);
+                for(char ch : cnt.toCharArray()){
+                    chars[index] = ch;
                     index++;
                 }
             }
