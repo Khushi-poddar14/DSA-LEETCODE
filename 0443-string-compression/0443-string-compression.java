@@ -1,29 +1,26 @@
 class Solution {
     public int compress(char[] chars) {
+        int i = 0;
         int n = chars.length;
         int index = 0;
-        int i = 0;
-        while(i < n){
-            char curr = chars[i];
+        while(i<n){
             int count = 0;
-
-            //find count of duplicates
-            while(i<n && curr == chars[i]){
+            char ch = chars[i];
+            while(i < n && ch == chars[i]){
                 count++;
                 i++;
             }
-
-            //Now Assign
-            chars[index] = curr;
+            chars[index] = ch;
             index++;
             if(count > 1){
                 String cnt = Integer.toString(count);
-                for(char ch : cnt.toCharArray()){
-                    chars[index] = ch;
+                for(char c : cnt.toCharArray()){
+                    chars[index] = c;
                     index++;
                 }
             }
         }
         return index;
+
     }
 }
