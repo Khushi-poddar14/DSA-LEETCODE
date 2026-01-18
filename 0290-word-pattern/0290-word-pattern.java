@@ -5,11 +5,11 @@ class Solution {
         HashMap<Character,String> mp = new HashMap<>();
         for(int i = 0; i < pattern.length(); i++){
             char ch = pattern.charAt(i);
-            boolean containskey = mp.containsKey(ch);
-            if(mp.containsValue(arr[i]) && !containskey){
+            boolean key = mp.containsKey(ch);
+            if(mp.containsValue(arr[i]) && !key){
                 return false;
             }
-            if(containskey && !mp.get(ch).equals(arr[i])){
+            if(key && !mp.get(ch).equals(arr[i])){
                 return false;
             }
             else{
