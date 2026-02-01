@@ -1,16 +1,22 @@
 class Solution {
-    public boolean isPalindrome(String s) {
-        s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
-        char[] arr = s.toCharArray();
-        int i = 0;
+    public static String rev(char[] arr){
         int n = arr.length;
+        int i = 0;
         int j = n-1;
         while(i < j){
-            if(arr[i]!=arr[j]) return false;
+            char temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
             i++;
             j--;
         }
-        return true;
-
+        return new String(arr);
+    }
+    public boolean isPalindrome(String s) {
+        s = s.toLowerCase().replaceAll("[^a-z0-9]" , "");
+        char[] arr = s.toCharArray();
+        String ans = rev(arr);
+        if(ans.equals(s)) return true;
+        return false;
     }
 }
