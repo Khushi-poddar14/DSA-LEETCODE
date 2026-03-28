@@ -6,13 +6,12 @@ class Solution {
         while(st <= end){
             int mid = st + (end - st) / 2;
             if(nums[mid] == target) return true;
-            if(nums[mid]==nums[st] && nums[mid]==nums[end]){
+            if(nums[mid] == nums[st] && nums[end] == nums[mid]){
                 st++;
                 end--;
-                continue;
             }
             else if(nums[st] <= nums[mid]){
-                if(nums[st] <= target && target <  nums[mid]){
+                if(nums[st] <= target && nums[mid] > target){
                     end = mid - 1;
                 }
                 else{
@@ -20,13 +19,14 @@ class Solution {
                 }
             }
             else{
-                if(nums[mid] < target && target <= nums[end]){
+                if(nums[mid] < target && nums[end] >= target){
                     st = mid + 1;
                 }
                 else{
                     end = mid - 1;
                 }
             }
+
         }
         return false;
     }
