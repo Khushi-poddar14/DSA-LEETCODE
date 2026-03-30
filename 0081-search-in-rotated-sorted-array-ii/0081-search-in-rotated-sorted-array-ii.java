@@ -19,7 +19,7 @@ class Solution {
                 }
             }
             else{
-                if(nums[mid] > target && target <= nums[end]){
+                if(nums[mid] < target && target <= nums[end]){
                     st = mid + 1;
                 }
                 else{
