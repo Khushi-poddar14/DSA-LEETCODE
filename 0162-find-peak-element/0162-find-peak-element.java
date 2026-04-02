@@ -3,6 +3,7 @@ class Solution {
         int low = 0;
         int high = arr.length - 1;
 
+// we are not writing low <= high becz let suppose st = 2 and end = 2 mid = 2 toh ab loop infinite chl pdega, becz ham end = mid kr re h na ki end = mid - 1 jo loop ko exit kr ske
         while (low < high) {
             int mid = low + (high - low) / 2;
 
